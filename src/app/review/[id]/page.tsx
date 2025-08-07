@@ -3,6 +3,12 @@ import { sampleReviews } from '../../data/sampleReviews';
 import RatingBar from '../../components/RatingBar';
 import Link from 'next/link';
 
+export function generateStaticParams() {
+  return sampleReviews.map((review) => ({
+    id: review.id,
+  }));
+}
+
 interface ReviewPageProps {
   params: Promise<{ id: string }>;
 }
